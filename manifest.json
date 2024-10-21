@@ -6,5 +6,6 @@
     "UniqueID": "howxu.dragon_sword",
     "EntryDll": "StardewValley_DragonSword.dll",
     "MinimumApiVersion": "4.0.0",
-    "UpdateKeys": ["Nexus:24417"]
+    "UpdateKeys": ["Nexus:24417"],
+    "Languages": ["zh"] 
   }

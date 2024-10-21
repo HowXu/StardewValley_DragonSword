@@ -1,6 +1,6 @@
-using StardewModdingAPI;
-
 namespace DragonSword;
+
+using StardewModdingAPI;
 
 public class ModEntry : Mod
 {
@@ -10,5 +10,12 @@ public class ModEntry : Mod
         //throw new NotImplementedException();
         //helper参数可以实现Events等的调用
         Monitor.Log("Load Dragon Sword Mod ...",LogLevel.Info);
+        ModContent content = new ModContent(helper);
+        ModShop shop = new ModShop(helper);
+
+        //事件注册
+        helper.Events.Content.AssetRequested += content.OnSwordRegister;
+        helper.Events.Content.AssetRequested += shop.onShopRegister;
+        
     }
 }
