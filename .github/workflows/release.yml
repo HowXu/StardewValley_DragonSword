@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore
 
       - name: Build in Release
-        run: echo "${GITHUB_REF#refs/tags/}"
+        run: echo "${{ github.ref }}"
 
       - name: Rename
         run: cp "./bin/Release/net6.0/StardewValley_DragonSword ${GITHUB_REF#refs/tags/}.zip" ./DragonSword.zip
