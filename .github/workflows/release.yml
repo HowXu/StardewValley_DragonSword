@@ -1,0 +1,35 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install Deps
+        run: dotnet restore
+
+      - name: Build in Release
+        run: dotnet build --configuration Release
+
+      - name: Rename
+        run: cp ./bin/Release/net6.0/StardewValley_DragonSword ${GITHUB_REF#refs/tags/}.zip ./DragonSword.zip
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.TOKEN }}
+          files: |
+            ./DragonSword.zip
