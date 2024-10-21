@@ -1,0 +1,10 @@
+{
+    "Name": "DragonSword Mod",
+    "Author": "Howxu",
+    "Version": "2.0.0",
+    "Description": "A sword you can never imagine",
+    "UniqueID": "howxu.dragon_sword",
+    "EntryDll": "StardewValley_DragonSword.dll",
+    "MinimumApiVersion": "4.0.0",
+    "UpdateKeys": ["Nexus:24417"]
+  }
